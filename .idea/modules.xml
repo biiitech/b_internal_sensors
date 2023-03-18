@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/flutter_sensor_controller.iml" filepath="$PROJECT_DIR$/flutter_sensor_controller.iml" />
+      <module fileurl="file://$PROJECT_DIR$/b_internal_sensors.iml" filepath="$PROJECT_DIR$/b_internal_sensors.iml" />
     </modules>
   </component>
 </project>

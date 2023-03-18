@@ -3,26 +3,25 @@ import 'dart:async';
 import 'package:flutter/services.dart';
 
 ///Main channel for method calls
-const MethodChannel _methodChannel =
-    MethodChannel('flutter_sensor_controller/method');
+const MethodChannel _methodChannel = MethodChannel('b_internal_sensors/method');
 
 ///Event channel for ambient temperature readings
 const EventChannel _temperatureEventChannel =
-    EventChannel('flutter_sensor_controller/temperature');
+    EventChannel('b_internal_sensors/temperature');
 
 ///Event channel for relative humdity readings
 const EventChannel _humidityEventChannel =
-    EventChannel('flutter_sensor_controller/humidity');
+    EventChannel('b_internal_sensors/humidity');
 
 ///Event channel for ambient light readings
 const EventChannel _lightEventChannel =
-    EventChannel('flutter_sensor_controller/light');
+    EventChannel('b_internal_sensors/light');
 
 ///Event channel for pressure readings
 const EventChannel _pressureEventChannel =
-    EventChannel('flutter_sensor_controller/pressure');
+    EventChannel('b_internal_sensors/pressure');
 
-class FlutterSensorController {
+class BInternalSensors {
   ///Stream of relative humidity readings
   Stream<double>? _humidityEvents;
 
@@ -36,9 +35,10 @@ class FlutterSensorController {
   Stream<double>? _pressureEvents;
 
   ///Check for the availabilitity of device sensor by sensor type.
-  Future<bool> getSensorAvailable(SensorType sensorType) => _methodChannel
-      .invokeMethod<bool>('isSensorAvailable', sensorType.index + 1)
-      .then((value) => value ?? false);
+  Future<bool> getSensorAvailable(BInternalSensorType sensorType) =>
+      _methodChannel
+          .invokeMethod<bool>('isSensorAvailable', sensorType.index + 1)
+          .then((value) => value ?? false);
 
   ///Gets the ambient temperature reading from device sensor, if present
   Stream<double> get temperature {
@@ -82,7 +82,7 @@ class FlutterSensorController {
 }
 
 ///An enum for defining device types when checking for sensor availability
-enum SensorType {
+enum BInternalSensorType {
   ACCELEROMETER,
   MAGNETIC_FIELD,
   _GYROSCOPE_LIMITED_AXIS,

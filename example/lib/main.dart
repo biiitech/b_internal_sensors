@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
 
-import 'package:flutter_sensor_controller/flutter_sensor_controller.dart';
+import 'package:b_internal_sensors/b_internal_sensors.dart';
 
 void main() {
   runApp(MyApp());
@@ -17,7 +17,7 @@ class _MyAppState extends State<MyApp> {
   bool _humidityAvailable = false;
   bool _lightAvailable = false;
   bool _pressureAvailable = false;
-  final sensorController = FlutterSensorController();
+  final sensorController = BInternalSensors();
 
   @override
   void initState() {
@@ -36,13 +36,13 @@ class _MyAppState extends State<MyApp> {
     bool pressureAvailable;
 
     tempAvailable = await sensorController
-        .getSensorAvailable(SensorType.AMBIENT_TEMPERATURE);
+        .getSensorAvailable(BInternalSensorType.AMBIENT_TEMPERATURE);
     humidityAvailable =
-        await sensorController.getSensorAvailable(SensorType.HUMIDITY);
+        await sensorController.getSensorAvailable(BInternalSensorType.HUMIDITY);
     lightAvailable =
-        await sensorController.getSensorAvailable(SensorType.LIGHT);
+        await sensorController.getSensorAvailable(BInternalSensorType.LIGHT);
     pressureAvailable =
-        await sensorController.getSensorAvailable(SensorType.PRESSURE);
+        await sensorController.getSensorAvailable(BInternalSensorType.PRESSURE);
 
     setState(() {
       _tempAvailable = tempAvailable;

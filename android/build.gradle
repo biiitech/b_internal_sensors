@@ -1,4 +1,4 @@
-group 'com.julow.flutter_sensor_controller'
+group 'in.biii.b_internal_sensors'
 version '1.0-SNAPSHOT'
 
 buildscript {

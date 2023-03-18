@@ -1,6 +1,6 @@
-# flutter_sensor_controller_example
+# b_internal_sensors_example
 
-Demonstrates how to use the flutter_sensor_controller plugin.
+Demonstrates how to use the b_internal_sensors plugin.
 
 ## Getting Started
 

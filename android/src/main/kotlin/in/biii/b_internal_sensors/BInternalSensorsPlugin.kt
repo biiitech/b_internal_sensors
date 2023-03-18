@@ -1,4 +1,4 @@
-package com.julow.flutter_sensor_controller
+package `in`.biii.b_internal_sensors
 
 import android.content.Context
 import android.hardware.Sensor
@@ -16,19 +16,19 @@ import io.flutter.plugin.common.MethodChannel.MethodCallHandler
 import io.flutter.plugin.common.MethodChannel.Result
 import io.flutter.plugin.common.PluginRegistry.Registrar
 
-/** FlutterSensorControllerPlugin */
-class FlutterSensorControllerPlugin: FlutterPlugin, MethodCallHandler {
+/** BInternalSensorsPlugin */
+class BInternalSensorsPlugin: FlutterPlugin, MethodCallHandler {
   /// The MethodChannel that will the communication between Flutter and native Android
   ///
   /// This local reference serves to register the plugin with the Flutter Engine and unregister it
   /// when the Flutter Engine is detached from the Activity
   private lateinit var channel : MethodChannel
 
-  private val METHOD_CHANNEL_NAME = "flutter_sensor_controller/method"
-  private val TEMPERATURE_CHANNEL_NAME = "flutter_sensor_controller/temperature"
-  private val HUMIDITY_CHANNEL_NAME = "flutter_sensor_controller/humidity"
-  private val LIGHT_CHANNEL_NAME = "flutter_sensor_controller/light"
-  private val PRESSURE_CHANNEL_NAME = "flutter_sensor_controller/pressure"
+  private val METHOD_CHANNEL_NAME = "b_internal_sensors/method"
+  private val TEMPERATURE_CHANNEL_NAME = "b_internal_sensors/temperature"
+  private val HUMIDITY_CHANNEL_NAME = "b_internal_sensors/humidity"
+  private val LIGHT_CHANNEL_NAME = "b_internal_sensors/light"
+  private val PRESSURE_CHANNEL_NAME = "b_internal_sensors/pressure"
 
   private var sensorManager: SensorManager? = null
   private var methodChannel: MethodChannel? = null
@@ -45,7 +45,7 @@ class FlutterSensorControllerPlugin: FlutterPlugin, MethodCallHandler {
   companion object {
     @JvmStatic
     fun registerWith(registrar: Registrar) {
-      val plugin = FlutterSensorControllerPlugin()
+      val plugin = BInternalSensorsPlugin()
       plugin.setupEventChannels(registrar.context(), registrar.messenger())
     }
   }

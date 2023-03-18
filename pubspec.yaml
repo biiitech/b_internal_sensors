@@ -1,7 +1,7 @@
-name: flutter_sensor_controller
+name: b_internal_sensors
 description: A Flutter plugin for reading ambient temperature,relative humidity, ambient light, and barometric pressure from a device.
 version: 0.2.0
-homepage: https://github.com/nhandrew/flutter_sensor_controller
+homepage: https://github.com/biii/b_internal_sensors
 
 environment:
   sdk: ">=2.12.0 <3.0.0"
@@ -19,9 +19,9 @@ flutter:
   plugin:
     platforms:
       android:
-        package: com.julow.flutter_sensor_controller
-        pluginClass: FlutterSensorControllerPlugin
+        package: in.biii.b_internal_sensors
+        pluginClass: BInternalSensorsPlugin
       ios:
-        pluginClass: FlutterSensorControllerPlugin
+        pluginClass: BInternalSensorsPlugin
 
 

@@ -16,20 +16,20 @@ let TYPE_ROTATION_VECTOR = 11
 let TYPE_HUMIDITY = 12
 let TYPE_AMBIENT_TEMPERATURE = 13
 
-public class SwiftFlutterSensorControllerPlugin: NSObject, FlutterPlugin {
+public class SwiftBInternalSensorsPlugin: NSObject, FlutterPlugin {
    private let pressureStreamHandler = PressureStreamHandler()
    private let lightStreamHandler = PressureStreamHandler()
 
 
   public static func register(with registrar: FlutterPluginRegistrar) {
-    let METHOD_CHANNEL_NAME = "flutter_sensor_controller/method"
-    let instance = SwiftFlutterSensorControllerPlugin(registrar:registrar)
+    let METHOD_CHANNEL_NAME = "b_internal_sensors/method"
+    let instance = SwiftBInternalSensorsPlugin(registrar:registrar)
     let channel = FlutterMethodChannel(name: METHOD_CHANNEL_NAME, binaryMessenger: registrar.messenger())
     registrar.addMethodCallDelegate(instance, channel: channel)
   }
 
   init(registrar: FlutterPluginRegistrar) {
-          let PRESSURE_CHANNEL_NAME = "flutter_sensor_controller/pressure"
+          let PRESSURE_CHANNEL_NAME = "b_internal_sensors/pressure"
 
           let pressureChannel = FlutterEventChannel(name: PRESSURE_CHANNEL_NAME, binaryMessenger: registrar.messenger())
           pressureChannel.setStreamHandler(pressureStreamHandler)

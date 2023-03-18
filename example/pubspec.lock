@@ -62,7 +62,7 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  flutter_sensor_controller:
+  b_internal_sensors:
     dependency: "direct main"
     description:
       path: ".."

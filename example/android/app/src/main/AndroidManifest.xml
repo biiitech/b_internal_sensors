@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.julow.flutter_sensor_controller_example">
+    package="in.biii.b_internal_sensors_example">
    <application
-        android:label="flutter_sensor_controller_example"
+        android:label="b_internal_sensors_example"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
