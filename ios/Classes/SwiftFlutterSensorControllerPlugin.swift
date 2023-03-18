@@ -2,10 +2,19 @@ import Flutter
 import UIKit
 import CoreMotion
 
-let TYPE_TEMPERATURE = 13
-let TYPE_HUMIDITY = 12
-let TYPE_PRESSURE = 6
+let TYPE_ACCELEROMETER = 1
+let TYPE_MAGNETIC_FIELD = 2
+let TYPE_GYROSCOPE_LIMITED_AXIS = 3
+let TYPE_GYROSCOPE = 4
 let TYPE_LIGHT = 5
+let TYPE_PRESSURE = 6
+let TYPE_TEMPERATURE = 7
+let TYPE_PROXIMITY = 8
+let TYPE_GRAVITY = 9
+let TYPE_USER_ACCELEROMETER = 10
+let TYPE_ROTATION_VECTOR = 11
+let TYPE_HUMIDITY = 12
+let TYPE_AMBIENT_TEMPERATURE = 13
 
 public class SwiftFlutterSensorControllerPlugin: NSObject, FlutterPlugin {
    private let pressureStreamHandler = PressureStreamHandler()
@@ -37,14 +46,33 @@ public class SwiftFlutterSensorControllerPlugin: NSObject, FlutterPlugin {
   }
     
 public func isSensorAvailable(_ sensorType: Int) -> Bool {
-        switch sensorType {
+    let motionManager = CMMotionManager()
+    switch sensorType {
+        case TYPE_ACCELEROMETER: 
+            return motionManager.isAccelerometerAvailable
+        case TYPE_MAGNETIC_FIELD: 
+            return motionManager.isMagnetometerAvailable
+        case TYPE_GYROSCOPE_LIMITED_AXIS: 
+            return false
+        case TYPE_GYROSCOPE: 
+            return motionManager.isGyroAvailable
+        case TYPE_LIGHT: 
+            return false
         case TYPE_PRESSURE:
             return CMAltimeter.isRelativeAltitudeAvailable()
-        case TYPE_LIGHT:
+        case TYPE_TEMPERATURE: 
             return false
-        case TYPE_HUMIDITY:
+        case TYPE_PROXIMITY: 
             return false
-        case TYPE_TEMPERATURE:
+        case TYPE_GRAVITY: 
+            return false
+        case TYPE_USER_ACCELEROMETER : 
+            return motionManager.isDeviceMotionAvailable
+        case TYPE_ROTATION_VECTOR : 
+            return false
+        case TYPE_HUMIDITY : 
+            return false
+        case TYPE_AMBIENT_TEMPERATURE : 
             return false
         default:
             return false

@@ -36,18 +36,9 @@ class FlutterSensorController {
   Stream<double>? _pressureEvents;
 
   ///Check for the availabilitity of device sensor by sensor type.
-  Future<bool> getSensorAvailable(SensorType sensorType) async {
-    if (sensorType == SensorType.AmbientTemperature)
-      return await _methodChannel.invokeMethod('isSensorAvailable', 13);
-    if (sensorType == SensorType.Humidity)
-      return await _methodChannel.invokeMethod('isSensorAvailable', 12);
-    if (sensorType == SensorType.Light)
-      return await _methodChannel.invokeMethod('isSensorAvailable', 5);
-    if (sensorType == SensorType.Pressure)
-      return await _methodChannel.invokeMethod('isSensorAvailable', 6);
-
-    return false;
-  }
+  Future<bool> getSensorAvailable(SensorType sensorType) => _methodChannel
+      .invokeMethod<bool>('isSensorAvailable', sensorType.index + 1)
+      .then((value) => value ?? false);
 
   ///Gets the ambient temperature reading from device sensor, if present
   Stream<double> get temperature {
@@ -91,4 +82,18 @@ class FlutterSensorController {
 }
 
 ///An enum for defining device types when checking for sensor availability
-enum SensorType { AmbientTemperature, Humidity, Light, Pressure }
+enum SensorType {
+  ACCELEROMETER,
+  MAGNETIC_FIELD,
+  _GYROSCOPE_LIMITED_AXIS,
+  GYROSCOPE,
+  LIGHT,
+  PRESSURE,
+  _TEMPERATURE,
+  PROXIMITY,
+  _GRAVITY,
+  USER_ACCELEROMETER,
+  _ROTATION_VECTOR,
+  HUMIDITY,
+  AMBIENT_TEMPERATURE,
+}
