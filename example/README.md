@@ -1,6 +1,6 @@
-# environment_sensors_example
+# flutter_sensor_controller_example
 
-Demonstrates how to use the environment_sensors plugin.
+Demonstrates how to use the flutter_sensor_controller plugin.
 
 ## Getting Started
 

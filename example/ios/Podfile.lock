@@ -1,20 +1,20 @@
 PODS:
-  - environment_sensors (0.0.1):
+  - flutter_sensor_controller (0.0.1):
     - Flutter
   - Flutter (1.0.0)
 
 DEPENDENCIES:
-  - environment_sensors (from `.symlinks/plugins/environment_sensors/ios`)
+  - flutter_sensor_controller (from `.symlinks/plugins/flutter_sensor_controller/ios`)
   - Flutter (from `Flutter`)
 
 EXTERNAL SOURCES:
-  environment_sensors:
-    :path: ".symlinks/plugins/environment_sensors/ios"
+  flutter_sensor_controller:
+    :path: ".symlinks/plugins/flutter_sensor_controller/ios"
   Flutter:
     :path: Flutter
 
 SPEC CHECKSUMS:
-  environment_sensors: 46802526e2f9e5b84722e0327d6391168b7ad74f
+  flutter_sensor_controller: 46802526e2f9e5b84722e0327d6391168b7ad74f
   Flutter: 434fef37c0980e73bb6479ef766c45957d4b510c
 
 PODFILE CHECKSUM: aafe91acc616949ddb318b77800a7f51bffa2a4c

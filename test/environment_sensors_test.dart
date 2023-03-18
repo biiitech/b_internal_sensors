@@ -1,9 +1,9 @@
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:environment_sensors/environment_sensors.dart';
+import 'package:flutter_sensor_controller/flutter_sensor_controller.dart';
 
 void main() {
-  const MethodChannel channel = MethodChannel('environment_sensors');
+  const MethodChannel channel = MethodChannel('flutter_sensor_controller');
 
   TestWidgetsFlutterBinding.ensureInitialized();
 
@@ -18,6 +18,6 @@ void main() {
   });
 
   // test('getPlatformVersion', () async {
-  //   expect(await EnvironmentSensors.platformVersion, '42');
+  //   expect(await FlutterSensorController.platformVersion, '42');
   // });
 }

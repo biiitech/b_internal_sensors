@@ -1,9 +1,9 @@
 #
 # To learn more about a Podspec see http://guides.cocoapods.org/syntax/podspec.html.
-# Run `pod lib lint environment_sensors.podspec` to validate before publishing.
+# Run `pod lib lint flutter_sensor_controller.podspec` to validate before publishing.
 #
 Pod::Spec.new do |s|
-  s.name             = 'environment_sensors'
+  s.name             = 'flutter_sensor_controller'
   s.version          = '0.0.1'
   s.summary          = 'A new Flutter project.'
   s.description      = <<-DESC

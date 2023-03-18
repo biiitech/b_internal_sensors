@@ -4,25 +4,25 @@ import 'package:flutter/services.dart';
 
 ///Main channel for method calls
 const MethodChannel _methodChannel =
-    MethodChannel('environment_sensors/method');
+    MethodChannel('flutter_sensor_controller/method');
 
 ///Event channel for ambient temperature readings
 const EventChannel _temperatureEventChannel =
-    EventChannel('environment_sensors/temperature');
+    EventChannel('flutter_sensor_controller/temperature');
 
 ///Event channel for relative humdity readings
 const EventChannel _humidityEventChannel =
-    EventChannel('environment_sensors/humidity');
+    EventChannel('flutter_sensor_controller/humidity');
 
 ///Event channel for ambient light readings
 const EventChannel _lightEventChannel =
-    EventChannel('environment_sensors/light');
+    EventChannel('flutter_sensor_controller/light');
 
 ///Event channel for pressure readings
 const EventChannel _pressureEventChannel =
-    EventChannel('environment_sensors/pressure');
+    EventChannel('flutter_sensor_controller/pressure');
 
-class EnvironmentSensors {
+class FlutterSensorController {
   ///Stream of relative humidity readings
   Stream<double>? _humidityEvents;
 

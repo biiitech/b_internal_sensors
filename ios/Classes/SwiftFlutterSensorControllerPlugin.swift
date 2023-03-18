@@ -7,20 +7,20 @@ let TYPE_HUMIDITY = 12
 let TYPE_PRESSURE = 6
 let TYPE_LIGHT = 5
 
-public class SwiftEnvironmentSensorsPlugin: NSObject, FlutterPlugin {
+public class SwiftFlutterSensorControllerPlugin: NSObject, FlutterPlugin {
    private let pressureStreamHandler = PressureStreamHandler()
    private let lightStreamHandler = PressureStreamHandler()
 
 
   public static func register(with registrar: FlutterPluginRegistrar) {
-    let METHOD_CHANNEL_NAME = "environment_sensors/method"
-    let instance = SwiftEnvironmentSensorsPlugin(registrar:registrar)
+    let METHOD_CHANNEL_NAME = "flutter_sensor_controller/method"
+    let instance = SwiftFlutterSensorControllerPlugin(registrar:registrar)
     let channel = FlutterMethodChannel(name: METHOD_CHANNEL_NAME, binaryMessenger: registrar.messenger())
     registrar.addMethodCallDelegate(instance, channel: channel)
   }
 
   init(registrar: FlutterPluginRegistrar) {
-          let PRESSURE_CHANNEL_NAME = "environment_sensors/pressure"
+          let PRESSURE_CHANNEL_NAME = "flutter_sensor_controller/pressure"
 
           let pressureChannel = FlutterEventChannel(name: PRESSURE_CHANNEL_NAME, binaryMessenger: registrar.messenger())
           pressureChannel.setStreamHandler(pressureStreamHandler)

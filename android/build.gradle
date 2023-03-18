@@ -1,4 +1,4 @@
-group 'com.julow.environment_sensors'
+group 'com.julow.flutter_sensor_controller'
 version '1.0-SNAPSHOT'
 
 buildscript {

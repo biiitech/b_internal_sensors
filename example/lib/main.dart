@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
 
-import 'package:environment_sensors/environment_sensors.dart';
+import 'package:flutter_sensor_controller/flutter_sensor_controller.dart';
 
 void main() {
   runApp(MyApp());
@@ -17,12 +17,12 @@ class _MyAppState extends State<MyApp> {
   bool _humidityAvailable = false;
   bool _lightAvailable = false;
   bool _pressureAvailable = false;
-  final environmentSensors = EnvironmentSensors();
+  final FlutterSensorController = FlutterSensorController();
 
   @override
   void initState() {
     super.initState();
-    environmentSensors.pressure.listen((pressure) {
+    FlutterSensorController.pressure.listen((pressure) {
       print(pressure.toString());
     });
     initPlatformState();
@@ -35,14 +35,14 @@ class _MyAppState extends State<MyApp> {
     bool lightAvailable;
     bool pressureAvailable;
 
-    tempAvailable = await environmentSensors
-        .getSensorAvailable(SensorType.AmbientTemperature);
+    tempAvailable = await FlutterSensorController.getSensorAvailable(
+        SensorType.AmbientTemperature);
     humidityAvailable =
-        await environmentSensors.getSensorAvailable(SensorType.Humidity);
+        await FlutterSensorController.getSensorAvailable(SensorType.Humidity);
     lightAvailable =
-        await environmentSensors.getSensorAvailable(SensorType.Light);
+        await FlutterSensorController.getSensorAvailable(SensorType.Light);
     pressureAvailable =
-        await environmentSensors.getSensorAvailable(SensorType.Pressure);
+        await FlutterSensorController.getSensorAvailable(SensorType.Pressure);
 
     setState(() {
       _tempAvailable = tempAvailable;
@@ -62,7 +62,7 @@ class _MyAppState extends State<MyApp> {
           body: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
             (_tempAvailable)
                 ? StreamBuilder<double>(
-                    stream: environmentSensors.humidity,
+                    stream: FlutterSensorController.humidity,
                     builder: (context, snapshot) {
                       if (!snapshot.hasData) return CircularProgressIndicator();
                       return Text(
@@ -71,7 +71,7 @@ class _MyAppState extends State<MyApp> {
                 : Text('No relative humidity sensor found'),
             (_humidityAvailable)
                 ? StreamBuilder<double>(
-                    stream: environmentSensors.temperature,
+                    stream: FlutterSensorController.temperature,
                     builder: (context, snapshot) {
                       if (!snapshot.hasData) return CircularProgressIndicator();
                       return Text(
@@ -80,7 +80,7 @@ class _MyAppState extends State<MyApp> {
                 : Text('No temperature sensor found'),
             (_lightAvailable)
                 ? StreamBuilder<double>(
-                    stream: environmentSensors.light,
+                    stream: FlutterSensorController.light,
                     builder: (context, snapshot) {
                       if (!snapshot.hasData) return CircularProgressIndicator();
                       return Text(
@@ -89,7 +89,7 @@ class _MyAppState extends State<MyApp> {
                 : Text('No light sensor found'),
             (_pressureAvailable)
                 ? StreamBuilder<double>(
-                    stream: environmentSensors.pressure,
+                    stream: FlutterSensorController.pressure,
                     builder: (context, snapshot) {
                       if (!snapshot.hasData) return CircularProgressIndicator();
                       return Text(
